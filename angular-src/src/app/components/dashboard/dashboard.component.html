@@ -1,0 +1,57 @@
+
+<div class="container">
+       <div class="col">
+        <h1 class="text-center h1-film">Films</h1> <!-- interpolation -->
+    </div>
+</div>
+
+<div class="container add-film">
+  <h3>Add
+    <small class="text-muted">a film to the collection !</small></h3>
+  <form (submit)="dashfilmSubmit()">
+    <div class="row">
+      <div class="form-group col-sm">
+        <label class="col-form-label col-form-label-sm" for="inputSmall">Name</label>
+        <input type="text" class="form-control form-control-sm" id="inputSmall" [(ngModel)]="name" name="name" placeholder="film's name">
+      </div>
+      <div class="form-group col-sm">
+        <label class="col-form-label col-form-label-sm" for="inputSmall">Director</label>
+        <input type="text" class="form-control form-control-sm" [(ngModel)]="director" name="director" placeholder="film's director">
+      </div>
+      <div class="form-group col-sm">
+        <label class="col-form-label col-form-label-sm" for="inputSmall">Year</label>
+        <input type="text" class="form-control form-control-sm" [(ngModel)]="year" name="year" placeholder="film's year">
+      </div>
+      <div class="w-100"></div>
+      <div class="form-group col-sm-6">
+        <label class="col-form-label col-form-label-sm" for="inputSmall">Description</label>
+        <textarea class="form-control form-control-sm" [(ngModel)]="description" name="description" placeholder="film's description" row="5" col="10"></textarea>
+      </div>
+      <div class="w-100"></div>
+      <div class="form-group col-md">
+        <input type="submit" class="btn btn-primary btn-sm" [value]="btnText" > <!-- property binding :  (click)="addItem()" -->
+      </div>
+    </div>
+  </form>
+</div>
+
+  <div class="container">
+    <h3>List <small class="text-muted">of films</small></h3>
+    <div class="row">
+        <div class="life-container" *ngFor="let film of films; let i = index" > <!-- (click)="removeItem(i)" -->
+          <div class="col-md">
+            <div class="card bg-secondary mb-3" style="max-width: 20rem;">
+              <div class="card-header">{{film.name}}</div>
+              <div class="card-body">
+                <h5 class="card-title tet-center">{{film.name}} by {{film.director}} in {{film.year}}</h5>
+                <p class="card-text">{{film.description}}</p>
+                <form (submit)="filmSubmit(film.name)" class="text-center">
+                    <input type="hidden" class="txt" [(ngModel)]="film.name" name="film.name">
+                    <input type="submit" class="btn btn-primary btn-sm" [value]="btnadd" > <!-- property binding :  (click)="addItem()" -->
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>

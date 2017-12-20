@@ -1,0 +1,25 @@
+<h1 class="page-header text-center">Register</h1>
+<!--<form (submit)="onRegisterSubmit()">-->
+<div class="container">
+  <div class="row">
+   <form (submit)="onRegisterSubmit()" class="test">
+    <div class="form-group">
+        <label class="col-form-label col-form-label-sm" for="inputSmall">Name</label>
+        <input type="text" [(ngModel)]="name" name="name" class="form-control form-control-sm">
+    </div>
+       <div class="form-group">
+        <label class="col-form-label col-form-label-sm" for="inputSmall">Username</label>
+        <input type="text" [(ngModel)]="username" name="username" class="form-control form-control-sm">
+    </div>
+       <div class="form-group">
+        <label class="col-form-label col-form-label-sm" for="inputSmall">Email</label>
+        <input type="text" [(ngModel)]="email" name="email" class="form-control form-control-sm">
+    </div>
+       <div class="form-group">
+        <label class="col-form-label col-form-label-sm" for="inputSmall">Password</label>
+        <input type="password" [(ngModel)]="password" name="password" class="password form-control form-control-sm">
+    </div>
+    <input type="submit" class="btn btn-primary btn-sm" value="Submit">
+</form>
+</div>
+</div>

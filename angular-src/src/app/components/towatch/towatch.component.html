@@ -1,0 +1,44 @@
+
+<div class="container">
+       <div class="col">
+        <h1 class="text-center h1-towatch">Your To-Watch List</h1> <!-- interpolation -->
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="col form-towatch">
+        <p class="sm text-center">Use this form below to add a new film in your to-watch list. What do you want to watch ?</p>
+
+        <form (submit)="filmSubmit()">
+          <div class="row">
+            <div class="col-sm-6">
+            <div class="form-group col-sm">
+              <label class="col-form-label col-form-label-sm" for="inputSmall">Name</label>
+              <input type="text" class="form-control form-control-sm" [(ngModel)]="filmname" name="filmname" placeholder="film's name">
+            </div>
+            <div class="form-group col-sm">
+            <input type="submit" class="btn btn-primary btn-sm" [value]="btnText" > <!-- property binding :  (click)="addItem()" -->
+          </div>
+          </div>
+          </div>
+        </form>
+    </div>
+    <div class="col-sm-6">
+      <ul class="list-group">
+        <div class="life-container" *ngFor="let film of films; let i = index" > <!-- (click)="removeItem(i)" -->
+            <li class="list-group-item d-flex justify-content-between align-items-center">{{ film.filmName }}
+              <span class="badge badge-primary">
+            <button type="button" (click)="delete(film)" class="btn btn-primary btn-sm">Delete</button>
+            <span *ngIf="film.seen == false">
+            <button type="button" (click)="watched(film)" class="btn btn-primary btn-sm">Watched ?</button>
+            </span>
+            <span *ngIf="film.seen == true">
+            <button type="button" (click)="watched(film)" class="btn btn-primary btn-sm">Watched !!!</button>
+          </span>
+        </span>
+        </li>
+        </div>
+    </ul>
+    </div>
+</div>
